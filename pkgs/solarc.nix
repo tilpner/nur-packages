@@ -32,4 +32,10 @@ stdenv.mkDerivation rec {
     cp -r extra/Chrome/*.crx $out/share/doc/$pname/Chrome
     cp AUTHORS README.md $out/share/doc/$pname/
   '';
+
+  meta = with stdenv.lib; {
+    description = "A solarized flat theme with transparent elements";
+    homepage = https://github.com/schemar/solarc-theme;
+    license = licenses.gpl3;
+  };
 }
