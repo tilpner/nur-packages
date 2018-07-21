@@ -2,6 +2,7 @@
 
 let
   listDirectory = import lib/listDirectory.nix;
+  pathDirectory = listDirectory (x: x);
   importDirectory = listDirectory import;
   callDirectory = listDirectory (p: pkgs.callPackage p {});
 
@@ -9,5 +10,5 @@ let
 in pkgs' // {
   pkgs = pkgs';
   lib = importDirectory ./lib;
-  modules = importDirectory ./modules;
+  modules = pathDirectory ./modules;
 }
