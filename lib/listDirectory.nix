@@ -1,13 +1,11 @@
-{ callPackage }:
-
 with builtins;
-dir:
+action: dir:
   let
     list = readDir dir;
   in listToAttrs (map
     (name: {
       name = replaceStrings [".nix"] [""] name;
-      value = callPackage (dir + ("/" + name)) {};
+      value = action (dir + ("/" + name));
     })
     (attrNames list))
 
