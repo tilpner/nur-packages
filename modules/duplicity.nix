@@ -1,10 +1,18 @@
 { config, pkgs, lib, ... }:
 
+# Manual setup required:
+#   Create a file /var/lib/duplicity/env/global.sh to set environment variables
+#   required for duplicity to authenticate with your storage target, e.g.:
+#     export AWS_ACCESS_KEY_ID=...
+#     export AWS_SECRET_ACCESS_KEY=...
+#
+#   Backup /var/lib/duplicity/gpg, it's needed to decrypt your data
+
 # How to restore from this:
 # duplicity \
 #   --use-agent \
 #   --gpg-options '--no-default-keyring --no-tty --batch --homedir=/cfg/pgp/foo' \
-#   gs://your-backups/foo/bar ./
+#   s3://s3.wasabisys.com/your-backups/foo/bar ./
 
 with lib;
 
