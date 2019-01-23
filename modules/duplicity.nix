@@ -40,7 +40,7 @@ let
           "--encrypt-key \"$FINGERPRINT\""
           "--sign-key \"$FINGERPRINT\""
           "--gpg-options '--no-tty --batch --homedir=\'${homedir}\''"
-        ];
+        ] ++ store.extraArgs;
       in ''
         mkdir -pm=700 '${cfg.stateDir}/env'
         [ -e '${cfg.stateDir}/env/global.sh' ] &&
@@ -174,6 +174,11 @@ in {
           volSize = mkOption {
             type = int;
             default = 250;
+          };
+
+          extraArgs = mkOption {
+            type = listOf string;
+            default = [];
           };
         };
       }));
