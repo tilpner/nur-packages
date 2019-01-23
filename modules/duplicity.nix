@@ -62,7 +62,7 @@ let
 
               Key-Usage: cert, encrypt, sign
 
-              Name-Real: ${config.networking.hostName}
+              Name-Real: ${config.networking.hostName}/${store.name}
 
               Expire-Date: 0
 
