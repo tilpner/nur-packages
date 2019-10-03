@@ -10,5 +10,5 @@ jobs:
     - uses: cachix/install-nix-action@v2
     - uses: cachix/cachix-action@v2
       with:
-        name: cachix-action
+        name: tilpner-ci
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
