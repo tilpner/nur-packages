@@ -118,7 +118,7 @@ let
         ${joinFlags connectionOptions}
           ${store.remote}
 
-        duplicity remove-all-but-n-full ${toString store.numFullToKeep} \
+        duplicity remove-all-but-n-full ${toString store.numFullToKeep} --force \
         ${joinFlags connectionOptions}
           ${store.remote}
     '';
