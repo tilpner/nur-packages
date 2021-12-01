@@ -226,7 +226,9 @@ in {
 
       home = cfg.stateDir;
       createHome = true;
+      group = "duplicity";
     };
+    users.groups.duplicity = {};
 
     systemd.services =
       mapAttrs'
